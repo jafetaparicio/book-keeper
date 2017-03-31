@@ -1,0 +1,17 @@
+<h1>Books</h1>
+<%= link_to 'New', '/books/new', class: 'btn btn-primary' %>
+
+<%= @books.each do |book| %>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object book-thumb" src="<%= book.picture_url %>" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link_to book.title, "/books/#{book.id}" %></h4>
+    <%= book.description %>
+    <%= link_to 'Edit', "/books/#{book.id}/edit", class: 'btn btn-default' %>
+  </div>
+</div>
+<% end %>
