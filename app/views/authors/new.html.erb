@@ -1,0 +1,9 @@
+<h1>New Author</h1>
+
+<% @author.errors.messages.each do |last_name, message| %>
+  <p class="bg-danger"><%= title %> <%= message.first %></p>
+<% end %>
+
+<%= form_tag '/authors' do %>
+  <%= render 'form' %>
+<% end %>

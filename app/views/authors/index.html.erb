@@ -1,0 +1,11 @@
+<h1>Authors</h1>
+<%= link_to 'New', '/authors/new', class: 'btn btn-primary' %>
+
+<ul class="list-group"> <!-- ul needs to be outside of the loop -->  
+<% @authors.each do |author| %>
+  <li class="list-group-item">
+    <%= author.last_name %>
+    <%= link_to 'Edit', "/authors/#{author.id}/edit", class: 'btn btn-default' %>
+  </li>
+<% end %>
+</ul>

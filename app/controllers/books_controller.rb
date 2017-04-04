@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   end
   
   def new
+    @book = Book.new #will not be saved to the date base
   end
   
   def create
@@ -14,9 +15,12 @@ class BooksController < ApplicationController
     @book.author_id = params[:author_id]
     @book.amazon_url = params[:amazon_url]
     @book.picture_url = params[:picture_url]
-    @book.save
-    #we want to redirect back to index
-    redirect_to '/books'
+    
+    if @book.save
+      redirect_to '/books'
+    else
+      render action: 'new' 
+    end
   end
   
   def edit
@@ -31,9 +35,12 @@ class BooksController < ApplicationController
     @book.author_id = params[:author_id]
     @book.amazon_url = params[:amazon_url]
     @book.picture_url = params[:picture_url]
-    @book.save
-
-    redirect_to '/books'
+   
+    if @book.save
+     redirect_to '/books'
+     else 
+     render action: 'edit'
+    end
   end
   
   def show #to show the specific book

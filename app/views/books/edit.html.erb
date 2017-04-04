@@ -1,23 +1,9 @@
 <h1>Edit Book</h1>
 
+<% @book.errors.messages.each do |title, message| %>
+  <p class="bg-danger"><%= title %> <%= message.first %></p>
+<% end %>
+
 <%= form_tag "/books/#{@book.id}", method: :put do %>
-  <div class="form-group">
-    <%= text_field_tag :title, @book.title, placeholder: 'Title', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= text_field_tag :description, @book.description, placeholder: 'Description', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= text_field_tag :pages, @book.pages, placeholder: 'Pages', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= text_field_tag :author_id, @book.author_id, placeholder: 'Author Id', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= text_field_tag :amazon_url, @book.amazon_url, placeholder: 'Amazon URL', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= text_field_tag :picture_url, @book.picture_url, placeholder: 'Picture URL', class: 'form-control' %>
-  </div>
-  <%= submit_tag 'Save', class: 'btn btn-default' %>
+  <%= render 'form' %> <!-- code for the partial -->
 <% end %>

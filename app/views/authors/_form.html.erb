@@ -1,0 +1,14 @@
+ <div class="form-group">
+    <%= text_field_tag :first_name, @author.first_name, placeholder: 'First Name', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :last_name, @author.last_name, placeholder: 'Last Name', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :bio, @author.bio, placeholder: 'Bio', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :picture_url, @author.picture_url, placeholder: 'Picture URL', class: 'form-control' %>
+  </div>
+  </div>
+  <%= submit_tag 'Save', class: 'btn btn-default' %>

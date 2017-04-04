@@ -1,7 +1,7 @@
 <h1>Books</h1>
 <%= link_to 'New', '/books/new', class: 'btn btn-primary' %>
 
-<%= @books.each do |book| %>
+<% @books.each do |book| %>
 <div class="media">
   <div class="media-left">
     <a href="#">

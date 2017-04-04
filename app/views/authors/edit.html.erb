@@ -1,0 +1,9 @@
+<h1>Edit Author</h1>
+
+<% @author.errors.messages.each do |last_name, message| %>
+  <p class="bg-danger"><%= last_name %> <%= message.first %></p>
+<% end %>
+
+<%= form_tag "/authors/#{@author.id}", method: :put do %>
+  <%= render 'form' %> <!-- code for the partial -->
+<% end %>
